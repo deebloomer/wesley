@@ -1,0 +1,44 @@
+<%= form_for(@route_detail) do |f| %>
+  <% if @route_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@route_detail.errors.count, "error") %> prohibited this route_detail from being saved:</h2>
+
+      <ul>
+      <% @route_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :route_id %><br />
+    <%= f.collection_select :route_id, @routes, :id, :combined_name, :prompt =>"please select"  %>
+
+    <!--dan  drop down box
+ route_id where answers are stored,
+@routes is where user chooses from
+id will be stored in
+route_id user sees
+last must be in @routes We need to restrict this to admin only) -->
+  </div>
+  <div class="field">
+    <%= f.label :stop_id %><br />
+    <%= f.number_field :stop_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stop_name %><br />
+    <%= f.text_field :stop_name %>
+  </div>
+  <div class="field">
+    <%= f.label :minutes_from_start %><br />
+    <%= f.number_field :minutes_from_start %>
+  </div>
+  <div class="field">
+    <%= f.label :zone_no %><br />
+    <%= f.number_field :zone_no %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

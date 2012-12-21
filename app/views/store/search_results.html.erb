@@ -1,0 +1,42 @@
+<h1 xmlns="http://www.w3.org/1999/html">Search Results</h1>
+
+<% if @routes %>
+
+    <table>
+
+      <tr><th>. Start Location .</th>
+        <th>. Destination .</th>
+        <th>. Our Route Code .</th>
+        <th>. Stop Name .</th>
+      </tr>
+      <br/>
+
+      <% @routes.each do |a_route| %>
+
+          <tr><td><%= a_route.start %></td>  <!--dee   put in start-->
+          <td><%= a_route.finish %></td>
+            <td><%= a_route.outbound_code %></td>
+            <td><% a_route.route_details.each do |details| %>
+
+                  <%= details.stop_name %><br/>
+
+              <% end %>
+
+            </td>
+
+          </tr>
+
+      <% end %>
+
+
+
+    </table>
+    <h4>We stop at your destination, buy your ticket here:<%= link_to 'Routes', routes_path %></h4>
+
+<% else %>
+
+    <p>Sorry, couldn't find anything.</p>
+
+    <p>Return to the <%= link_to "home page", root_url %>.</p>
+
+<% end %>

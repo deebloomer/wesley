@@ -1,0 +1,47 @@
+<div class="_form" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+  <%= form_for @user do |f| %>
+      <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %>
+              prohibited this user from being saved:</h2>
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <fieldset>
+        <legend>Create an Account</legend>
+
+        <div>
+          <ul>
+        <li><%= f.label :name %>:</li>
+          <%= f.text_field :name, size: 40 %>
+          </ul>
+        </div>
+
+        <div>
+          <ul>
+            <li><%= f.label :password, 'Password' %>:</li>
+          <%= f.password_field :password, size: 40 %>
+          </ul>
+        </div>
+
+        <div>
+          <ul>
+            <li><%= f.label :password_confirmation, 'Confirm' %>:</li>
+          <%= f.password_field :password_confirmation, size: 40 %>
+          </ul>
+        </div>
+
+        <div>
+          <%= f.submit %>
+        </div>
+
+      </fieldset>
+  <% end %>
+
+</div>

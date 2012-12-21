@@ -1,0 +1,47 @@
+<p>
+  <b>From: <%= @route.start %></b>
+
+  <b>To: <%= @route.finish %></b>
+
+  Outbound code: <%= @route.outbound_code %>
+  Inbound code: <%= @route.inbound_code %></p>
+
+
+
+<table>
+
+  <tr>
+    <th>Stops at</th>
+    <!--  <th>stop no</th>  --->
+    <th>Journey time</th>
+    <th>Zone</th>
+    <th></th>
+
+  </tr>
+  <% @route.route_details.each do |d| %>       <!-- dan -->
+      <tr>
+        <td> <%= d.stop_name %></td>
+        <!--<td> <%#= d.stop_id %></td>-->
+        <td> <%= d.minutes_from_start %></td>
+        <td> <%= d.zone_no %></td>
+        <td>
+          <%= form_for @line_item do |item| %>        <!-- generate empty rails form        -->
+              <%= item.hidden_field :route_id %>
+              <%= item.hidden_field :route_detail_id, :value => d.id %>
+              <%= item.number_field :quantity,:value => 1 , :width => "5"%>
+              <%= item.submit "add to cart" %>
+          <% end %>
+        </td>
+
+      </tr>
+  <% end %>
+</table>
+
+
+<!-- <%# @route.ticket_price.each do |d| %>-->       <!-- was going to try same as above but with ticket price but wouldnt work -->
+
+
+
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>

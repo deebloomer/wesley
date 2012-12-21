@@ -1,0 +1,30 @@
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Welcome to BusRoutes.ie</h1>
+<h4>Busroutes.ie is a family business in existence for almost 100 years.
+  We run scheduled services on a number of routes in Ireland and also
+  provide coach tours, event travel and private hire. The average frequency
+  on each route is 10 per day. Have a look at out timetable link to see
+  which route and time suits your travel plans and leave the car behind for
+  a stress free journey.Busroutes.ie is located in Dublin, we have expansion
+  plans in 2013, at the moment we run scheduled services from Dublin to:
+  .Wexford.	.Limerick. .Cork. .Galway. .Donegal. .Dundalk.
+</h4>
+
+
+<% @routes.each do |route| %>
+    <div class="entry">
+
+      <h3>Outbound route: <%= route.outbound_code%> From: <%= route.start%> To: <%= route.finish%></h3>
+      <h4>Inbound route:  <%= route.inbound_code%> From: <%= route.finish%> To: <%= route.start%></h4>
+      <p>9 stops on this route, 3 stops per zone, ticket prices are based on the number of zones travelled. </p>
+
+      <%= link_to 'Buy your tickets here', products_path %>
+
+    </div>
+
+<% end %>
+
+
