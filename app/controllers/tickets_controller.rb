@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
+  skip_before_filter :authorize, only: [:index,:show]
   def index
     @tickets = Ticket.all
     @cart = current_cart

@@ -1,7 +1,7 @@
 class RouteDetailsController < ApplicationController
-  before_filter :get_variables
+  before_filter :get_variables  #dan
+  skip_before_filter :authorize, only: [:index, :show]
 
-  skip_before_filter :authorize
   # GET /route_details
   # GET /route_details.json
   def index

@@ -3,11 +3,11 @@
 <table>
   <tr>
     <th>Departure time</th>
-    <th>Stop</th>
-    <th>Integer</th>
-    <th>Outbound</th>
-    <th>Inbound</th>
-    <th>Capacity</th>
+    <!--<th>Stop</th>
+    <th>Integer</th>-->
+    <th>From Dublin</th>
+    <th>To Dublin</th>
+    <th>Seats Remaining</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,9 +15,9 @@
 
 <% @route_schedules.each do |route_schedule| %>
   <tr>
-    <td><%= route_schedule.departure_time %></td>
-    <td><%= route_schedule.stop_id %></td>
-    <td><%= route_schedule.integer %></td>
+    <td><%= route_schedule.departure_time.strftime("%H:%M")  %></td>    <!--from Dan-->
+    <!--<td><%#= route_schedule.stop_id %></td>
+    <td><%#= route_schedule.integer %></td>-->
     <td><%= route_schedule.outbound %></td>
     <td><%= route_schedule.inbound %></td>
     <td><%= route_schedule.capacity %></td>

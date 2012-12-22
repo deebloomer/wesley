@@ -3,25 +3,25 @@
 <% end %>
 
 <h1>Welcome to BusRoutes.ie</h1>
-<h4>Busroutes.ie is a family business in existence for almost 100 years.
+<h4>Busroutes.ie is a family business located in Dublin since 1961.
   We run scheduled services on a number of routes in Ireland and also
-  provide coach tours, event travel and private hire. The average frequency
-  on each route is 10 per day. Have a look at out timetable link to see
-  which route and time suits your travel plans and leave the car behind for
-  a stress free journey.Busroutes.ie is located in Dublin, we have expansion
+  provide coach tours, event travel and private hire. Each one of our
+  Scheduled Services runs 10 times per day. Have a look at our list of
+  routes below leave the car behind for a stress free journey.
+
+</h4>    <!-- Busroutes.ie is located in Dublin, we have expansion
   plans in 2013, at the moment we run scheduled services from Dublin to:
-  .Wexford.	.Limerick. .Cork. .Galway. .Donegal. .Dundalk.
-</h4>
+  .Wexford.	.Limerick. .Cork. .Galway. .Donegal. .Dundalk.-->
 
 
 <% @routes.each do |route| %>
     <div class="entry">
 
-      <h3>Outbound route: <%= route.outbound_code%> From: <%= route.start%> To: <%= route.finish%></h3>
-      <h4>Inbound route:  <%= route.inbound_code%> From: <%= route.finish%> To: <%= route.start%></h4>
-      <p>9 stops on this route, 3 stops per zone, ticket prices are based on the number of zones travelled. </p>
+      <h3>From: <%= route.start%> To: <%= route.finish%>Outbound route code: <%= route.outbound_code%> </h3>
+      <h4>From: <%= route.finish%> To: <%= route.start%> Inbound route code:  <%= route.inbound_code%> </h4>
+      <!--<p>9 stops on this route, 3 stops per zone, ticket prices are based on the number of zones travelled. </p>-->
 
-      <%= link_to 'Buy your tickets here', route %>        <!-- jjjj  -->
+      <%= link_to 'Further information and Ticket Purchase here', route %>        <!-- dee add notes here you can put route not route_path when you are inside a do loop as you are dealing with one record at a time  -->
 
     </div>
 
