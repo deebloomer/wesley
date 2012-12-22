@@ -4,10 +4,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_name(params[:name])
-    if user and user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to products_path, :notice => "You are now logged in!"
+    user = User.find_by_name(params[:name])               #looking up user based on name
+    if user and user.authenticate(params[:password])       #if find user & run auth if passes test
+      session[:user_id] = user.id                           #it ll do these lines
+      redirect_to user, :notice => "You are now logged in!" #jump out of one controller to another (render = html file)
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end

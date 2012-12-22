@@ -43,12 +43,12 @@ Product.create(title: 'Rails Test Prescriptions',
                price: 34.95)
 
 Route.destroy_all
-Route.create({outbound_code: "DubWex", inbound_code: "WexDub", return_route: true, start: "Dublin Airport", finish: "Wexford"})
-Route.create({outbound_code: "DubCork", inbound_code: "CorkDub", return_route: true, start: "Dublin Airport", finish: "Cork"})
-Route.create({outbound_code: "DubLim", inbound_code: "LimDub", return_route: true, start: "Dublin Airport", finish: "Shannon Airport"})
-Route.create({outbound_code: "DubGal", inbound_code: "GalDub", return_route: true, start: "Dublin Airport", finish: "Galway"})
-Route.create({outbound_code: "DubDgl", inbound_code: "DglDub", return_route: true, start: "Georges Quay", finish: "Annagry"})
-Route.create({outbound_code: "DubDun", inbound_code: "DunDub", return_route: true, start: "Amien Street", finish: "Dundalk"})
+Route.create({outbound_code: "DubWex", inbound_code: "WexDub", return_route: true, start: "Dublin Airport", finish: "Wexford", price: 15})
+Route.create({outbound_code: "DubCork", inbound_code: "CorkDub", return_route: true, start: "Dublin Airport", finish: "Cork", price: 15})
+Route.create({outbound_code: "DubLim", inbound_code: "LimDub", return_route: true, start: "Dublin Airport", finish: "Shannon Airport", price: 15})
+Route.create({outbound_code: "DubGal", inbound_code: "GalDub", return_route: true, start: "Dublin Airport", finish: "Galway", price: 15})
+Route.create({outbound_code: "DubDgl", inbound_code: "DglDub", return_route: true, start: "Georges Quay", finish: "Annagry", price: 15})
+Route.create({outbound_code: "DubDun", inbound_code: "DunDub", return_route: true, start: "Amien Street", finish: "Dundalk", price: 15})
 
 RouteDetail.destroy_all
 RouteDetail.create({route_id: Route.find_by_outbound_code("DubWex").id, stop_id: 1, stop_name: "Dublin Airport", minutes_from_start: 0, zone_no: 1})
@@ -202,3 +202,5 @@ TicketPrice.create({no_of_zones: 1, price: 6})
 TicketPrice.create({no_of_zones: 2, price: 12})
 
 TicketPrice.create({no_of_zones: 3, price: 15})
+
+puts "everything grand"

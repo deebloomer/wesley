@@ -1,15 +1,32 @@
+<h1> Your Profile</h1>
 <p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @user.name %>
 </p>
 
-<p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
-</p>
+<h2> Your Purchase History</h2>
+<table>
+  <tr>
+    <th>Name </th>
+    <th>Address </th>
+    <th>Email </th>
+    <th>Pay type </th>
 
+  </tr>
+<% @user.orders.each do |order| %>
+    <tr>
+      <td><%= order.name %></td>
+      <td><%= order.address %></td>
+      <td><%= order.email %></td>
+      <td><%= order.pay_type %></td>
+    </tr>
 
+<% end %>
+</table>
 <%= link_to 'Edit', edit_user_path(@user) %> |
+<% if current_user.admin %>
 <%= link_to 'Back', users_path %>
+<% else %>
+<%= link_to 'Back', root_url %>     <!-- appears on screen otherwise not needed -->
+<% end %>

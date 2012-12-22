@@ -24,7 +24,10 @@
   <b>Zone no:</b>
   <%= @route_detail.zone_no %>
 </p>
+<!--<div class="price_line">
+  <%#= button_to 'Add to Cart ', line_items_path(:route_detail_id => route_detail) dee wouldnt work %>
 
+</div>-->
 
 <%= link_to 'Edit', edit_route_detail_path(@route_detail) %> |
 <%= link_to 'Back', route_details_path %>

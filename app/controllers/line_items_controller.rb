@@ -43,9 +43,16 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     @cart = current_cart
+    route = Route.find(params[:line_item][:route_id])                 #dan [:line_item]
+    @line_item = @cart.add_route(route.id)
+    @line_item.route = route
+=begin
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product.id)
     @line_item.product = product
+=end
+
+
 
     respond_to do |format|
       if @line_item.save

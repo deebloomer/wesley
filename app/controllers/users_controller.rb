@@ -16,8 +16,12 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show
-    @user = User.find(params[:id])
+  def show                                        #for 1 person, show exects no
+     if current_user.admin                          #if person req is adm  ln 21 will run with any users info
+      @user = User.find(params[:id])
+     else
+      @user = current_user   #they ll only get their own
+     end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -48,7 +52,7 @@ class UsersController < ApplicationController
 
       respond_to do |format|                    #not in tut
         if @user.save
-          format.html { redirect_to root_url,notice: "User #{@user.name} was successfully created." } #diff in tut
+          format.html { redirect_to routes_path,notice: "User #{@user.name} was successfully created." } #diff in tut: redirect_to products_path, :notice => 'User creation successful!' dee changed from root_url
           format.json { render json: @user,status: :created, location: @user }     #not in tut
         else
           format.html { render action: "new" }  #diff in tut

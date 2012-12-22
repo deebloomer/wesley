@@ -1,5 +1,5 @@
 class Route < ActiveRecord::Base
-  attr_accessible :finish, :inbound_code, :outbound_code, :return_route, :start
+  attr_accessible :finish, :inbound_code, :outbound_code, :return_route, :start, :price
   has_many :route_details
   has_many :line_items
 

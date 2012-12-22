@@ -12,6 +12,7 @@
 <div id="banner">
   <div style="float:right; padding:20px 30px;">
     <% if session[:user_id] %>
+        Hi <%= link_to current_user.name, current_user, :title => "click to view your account" %>
         <%= link_to "Sign out", logout_path %>
     <% else %>
         <%= link_to "Sign in", login_path %>  or
@@ -36,9 +37,9 @@
     <ul id="topmenu" style="clear:both;">
       <li><%= link_to 'Home',   store_path   %></li>
       <li><%= link_to 'Bus Routes',   routes_path   %></li>
-      <li><%= link_to 'Route Details',   route_detail_path  %></li>
-      <li><%= link_to 'Timetables',   route_schedule_path %></li>
-      <li><%= link_to 'Prices',   ticket_price_path  %></li>
+      <li><%= link_to 'Route Details',   route_details_path  %></li>
+      <li><%= link_to 'Timetables',   route_schedules_path %></li>
+      <li><%= link_to 'Prices',   ticket_prices_path  %></li>
       <li>  <a href="/events">Events</a> </li>
       <li><a href="http://www..../faq">Tours</a></li>
       <li><a href="http://www..../news">Private Hire</a></li>
